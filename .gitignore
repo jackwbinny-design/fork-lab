@@ -1,0 +1,11 @@
+node_modules/
+dist/
+
+.server.log
+.server.pid
+.vite.log
+.vite.pid
+
+dashboard-*.png
+
+.DS_Store

@@ -1,0 +1,831 @@
+{
+  "generatedAt": "2026-06-09T00:00:00.000+08:00",
+  "version": 1,
+  "description": "项目簇用于把相近仓库合并成一次学习行动。repos.json 保持自动更新，clusters.json 保留人工判断和合并建议。",
+  "relationTypes": ["主线平台", "同类替代", "配套增强", "资料索引", "上游下游", "灵感参考", "疑似重复"],
+  "clusters": [
+    {
+      "id": "ai-agent-workflow",
+      "name": "AI Agent / 工作流工程",
+      "categoryId": "agent",
+      "purpose": "学习如何把 LLM、工具、记忆、外部数据和部署流程串成可执行工作流。",
+      "primaryRepo": "langflow",
+      "relatedRepos": ["honcho", "odysseus", "claude-mem", "deepseek-reasonix", "xiaohongshu-mcp", "CodePilot"],
+      "priorityScore": 94,
+      "weeklyRank": 1,
+      "weeklyAction": "先用 langflow 跑通一个最小工作流，再只读 honcho 和 claude-mem 的记忆设计。",
+      "doneCriteria": "能画出一张“输入 -> 工具调用 -> 记忆 -> 输出”的流程图，并判断哪些项目继续深挖。",
+      "mergeStrategy": "langflow 做主线；honcho/claude-mem 只研究记忆层；odysseus 和 CodePilot 先作为架构参考；xiaohongshu-mcp 等到需要内容平台自动化时再展开。",
+      "opportunity": "可迁移成你的自动化顾问、内容生产助手、行业资料整理 Agent。",
+      "repoRelations": [
+        {
+          "repo": "langflow",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它有可视化工作流画布，适合先理解 Agent 系统的输入、节点、工具和输出。",
+          "mergeSuggestion": "本周优先跑通，不要同时展开多个 Agent 框架。"
+        },
+        {
+          "repo": "honcho",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "它更偏用户状态和长期记忆，能补足 langflow 的记忆层设计。",
+          "mergeSuggestion": "只读核心概念，记录记忆模型，暂不写完整应用。"
+        },
+        {
+          "repo": "odysseus",
+          "role": "架构参考",
+          "relationType": "同类替代",
+          "relationReason": "同属 Agent/自动化方向，适合拿来比较任务拆解和工具组织方式。",
+          "mergeSuggestion": "先和 langflow 二选一深挖；另一方保留为架构参考。"
+        },
+        {
+          "repo": "claude-mem",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "用于观察 Claude 生态里的记忆保存方式，可迁移到自己的助手工作流。",
+          "mergeSuggestion": "和 honcho 放一起比较，不单独开新学习线。"
+        },
+        {
+          "repo": "deepseek-reasonix",
+          "role": "同类替代",
+          "relationType": "同类替代",
+          "relationReason": "偏推理/Agent 能力展示，和主线目标重叠但技术切口不同。",
+          "mergeSuggestion": "只保留一个最能落地的推理链示例。"
+        },
+        {
+          "repo": "xiaohongshu-mcp",
+          "role": "场景插件",
+          "relationType": "上游下游",
+          "relationReason": "它不是通用 Agent 框架，而是内容平台自动化场景，可作为未来具体插件。",
+          "mergeSuggestion": "等主线工作流跑通后再接入。"
+        },
+        {
+          "repo": "CodePilot",
+          "role": "应用参考",
+          "relationType": "灵感参考",
+          "relationReason": "可参考它如何把 Agent 能力包装成面向开发者的产品体验。",
+          "mergeSuggestion": "只拆 UI/交互和任务编排，不作为本周实现对象。"
+        }
+      ]
+    },
+    {
+      "id": "design-generation-stack",
+      "name": "设计生成与图像工作流",
+      "categoryId": "creative",
+      "purpose": "把图像生成、设计生成、提示词资料和展示案例合并成一条可复用的视觉产出流程。",
+      "primaryRepo": "impeccable",
+      "relatedRepos": ["awesome-gpt-image-2", "awesome-seedance-2-prompts", "paywall-gallery", "ideogram4", "awesome-gpt-image-2-API-and-Prompts", "gpt_image_2_skill"],
+      "priorityScore": 92,
+      "weeklyRank": 2,
+      "weeklyAction": "先读 impeccable 的核心能力，再从 GPT Image/Seedance 资料里挑 3 个案例做提示词拆解。",
+      "doneCriteria": "沉淀 3 条可复用的图像/设计生成模板，并判断哪些资料库重复。",
+      "mergeStrategy": "impeccable 做主线；GPT Image 与 Seedance 仓库作为提示词资料；paywall-gallery/ideogram4 只作为审美和案例参考。",
+      "opportunity": "可沉淀成设计提示词库、图片生成服务、产品原型视觉生成流程。",
+      "repoRelations": [
+        {
+          "repo": "impeccable",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它更像可落地工具，适合承载本周设计生成主线。",
+          "mergeSuggestion": "先验证安装和核心流程，避免只看提示词资料。"
+        },
+        {
+          "repo": "awesome-gpt-image-2",
+          "role": "资料索引",
+          "relationType": "资料索引",
+          "relationReason": "大量 GPT Image 2 案例适合拆提示词结构。",
+          "mergeSuggestion": "只挑 3 个与你副业方向相关的案例，不全量阅读。"
+        },
+        {
+          "repo": "awesome-seedance-2-prompts",
+          "role": "资料索引",
+          "relationType": "资料索引",
+          "relationReason": "补充视频/动态生成提示词，与图像提示词形成同一素材库。",
+          "mergeSuggestion": "和 GPT Image 资料合并成一个提示词模板库。"
+        },
+        {
+          "repo": "paywall-gallery",
+          "role": "灵感参考",
+          "relationType": "灵感参考",
+          "relationReason": "可观察高质量付费墙/展示页的视觉表达。",
+          "mergeSuggestion": "只留截图和结构灵感，不作为技术主线。"
+        },
+        {
+          "repo": "ideogram4",
+          "role": "替代工具",
+          "relationType": "同类替代",
+          "relationReason": "同属图像生成方向，适合和 GPT Image 案例比较文字渲染和风格控制。",
+          "mergeSuggestion": "二选一做深度案例，另一方只记优缺点。"
+        },
+        {
+          "repo": "awesome-gpt-image-2-API-and-Prompts",
+          "role": "疑似重复",
+          "relationType": "疑似重复",
+          "relationReason": "和 awesome-gpt-image-2 高度相近，可能是同类资料再收藏。",
+          "mergeSuggestion": "比较目录后只保留信息更完整的一份。"
+        },
+        {
+          "repo": "gpt_image_2_skill",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "如果要把提示词流程接到 Codex/技能体系里，它可以作为封装参考。",
+          "mergeSuggestion": "等模板稳定后再看技能封装。"
+        }
+      ]
+    },
+    {
+      "id": "knowledge-capture-system",
+      "name": "知识收藏与自动整理",
+      "categoryId": "knowledge",
+      "purpose": "解决收藏夹、X、公众号、网页内容长期堆积但无法复用的问题。",
+      "primaryRepo": "OpenWiki",
+      "relatedRepos": ["x-bookmark-to-obsidian", "wechat-radar", "markamd", "firecrawl", "wechat-article-exporter-"],
+      "priorityScore": 90,
+      "weeklyRank": 3,
+      "weeklyAction": "用 OpenWiki 导入 3 条真实收藏，再比较 x-bookmark-to-obsidian 是否更轻。",
+      "doneCriteria": "能完成一次“收藏 -> 结构化 -> 搜索/提问 -> 留存判断”的闭环。",
+      "mergeStrategy": "OpenWiki 做本地知识库主线；x-bookmark-to-obsidian 做轻量替代；wechat-radar/firecrawl/文章导出器只作为采集层。",
+      "opportunity": "可迁移成个人知识整理系统、收藏自动摘要工具、每周关注趋势报告。",
+      "repoRelations": [
+        {
+          "repo": "OpenWiki",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它覆盖剪贴板保存、AI 整理、Wiki 页面、知识图谱和每周总结，最贴近你的收藏整理痛点。",
+          "mergeSuggestion": "本周优先真实试用，不只看 README。"
+        },
+        {
+          "repo": "x-bookmark-to-obsidian",
+          "role": "轻量替代",
+          "relationType": "同类替代",
+          "relationReason": "更偏 X 收藏导出到 Obsidian，范围小但启动成本低。",
+          "mergeSuggestion": "和 OpenWiki 二选一作为日常入口。"
+        },
+        {
+          "repo": "wechat-radar",
+          "role": "采集工具",
+          "relationType": "配套增强",
+          "relationReason": "适合补齐微信内容来源，不负责完整知识库体验。",
+          "mergeSuggestion": "只作为采集层，别单独变成新项目。"
+        },
+        {
+          "repo": "markamd",
+          "role": "格式工具",
+          "relationType": "配套增强",
+          "relationReason": "可作为 Markdown/内容整理链路中的格式处理工具。",
+          "mergeSuggestion": "等 OpenWiki 或 Obsidian 路线确定后再接入。"
+        },
+        {
+          "repo": "firecrawl",
+          "role": "采集工具",
+          "relationType": "配套增强",
+          "relationReason": "可把网页抓取能力作为知识输入层，适合未来自动化采集。",
+          "mergeSuggestion": "先保留为基础设施，不作为本周主线。"
+        },
+        {
+          "repo": "wechat-article-exporter-",
+          "role": "采集工具",
+          "relationType": "配套增强",
+          "relationReason": "公众号文章导出适合作为知识输入来源。",
+          "mergeSuggestion": "和 wechat-radar 合并判断，避免两个微信采集线同时展开。"
+        }
+      ]
+    },
+    {
+      "id": "finance-data-stack",
+      "name": "金融数据与量化工具",
+      "categoryId": "finance",
+      "purpose": "学习金融数据获取、指标分析和回测工具链；仅作为技术学习，不作为投资建议。",
+      "primaryRepo": "OpenBB",
+      "relatedRepos": ["yfinance", "FinanceToolkit", "vectorbt", "awesome-quant", "FinceptTerminal"],
+      "priorityScore": 86,
+      "weeklyAction": "先跑 OpenBB + yfinance 获取一组数据，暂不做策略判断。",
+      "doneCriteria": "能获取并保存一份行情/财务数据，写清楚各工具在数据链路里的位置。",
+      "mergeStrategy": "OpenBB 做终端和平台主线；yfinance 做轻量数据入口；FinanceToolkit/vectorbt 放到第二阶段；awesome-quant 只做资料地图。",
+      "opportunity": "可迁移成金融数据看板、行业资料监控、量化工具学习资产。",
+      "repoRelations": [
+        {
+          "repo": "OpenBB",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它覆盖金融数据平台、终端和 AI agent 场景，适合做技术主线。",
+          "mergeSuggestion": "只验证数据和接口能力，不做投资结论。"
+        },
+        {
+          "repo": "yfinance",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "轻量获取 Yahoo Finance 数据，适合快速写最小 demo。",
+          "mergeSuggestion": "和 OpenBB 一起跑，作为最小数据入口。"
+        },
+        {
+          "repo": "FinanceToolkit",
+          "role": "第二阶段",
+          "relationType": "配套增强",
+          "relationReason": "更偏财务指标和分析工具，适合数据获取跑通后再看。",
+          "mergeSuggestion": "暂时保留，不加入本周动作。"
+        },
+        {
+          "repo": "vectorbt",
+          "role": "第二阶段",
+          "relationType": "配套增强",
+          "relationReason": "偏回测框架，学习成本高于数据获取。",
+          "mergeSuggestion": "等你能稳定拿到数据后再做回测。"
+        },
+        {
+          "repo": "awesome-quant",
+          "role": "资料索引",
+          "relationType": "资料索引",
+          "relationReason": "它更像量化资料目录，容易导致继续收藏而不是行动。",
+          "mergeSuggestion": "只用来补地图，不逐条展开。"
+        },
+        {
+          "repo": "FinceptTerminal",
+          "role": "同类替代",
+          "relationType": "同类替代",
+          "relationReason": "同样偏金融终端体验，可和 OpenBB 对比产品形态。",
+          "mergeSuggestion": "二选一作为终端主线，另一方只作 UI/产品参考。"
+        }
+      ]
+    },
+    {
+      "id": "browser-desktop-efficiency",
+      "name": "浏览器与桌面效率",
+      "categoryId": "browser",
+      "purpose": "把 X、浏览器、新标签页、翻译和桌面小工具合并成一个效率工具方向。",
+      "primaryRepo": "make-x-great-again",
+      "relatedRepos": ["qiaomu-tab", "PairTranslate", "browser", "claude-desktop-buddy", "sniffnet", "macsai"],
+      "priorityScore": 80,
+      "weeklyAction": "先阅读 make-x-great-again 的 manifest 和功能入口，判断是否能抽象成浏览器效率插件模板。",
+      "doneCriteria": "写出一个浏览器扩展最小功能清单和可复用交互结构。",
+      "mergeStrategy": "make-x-great-again 做 X 场景主线；qiaomu-tab 做新标签页方向；PairTranslate/browser 作为工具能力参考。",
+      "opportunity": "可迁移成面向 X/公众号/网页阅读的效率扩展或桌面小助手。",
+      "repoRelations": [
+        {
+          "repo": "make-x-great-again",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它面向 X 的真实效率痛点，适合观察浏览器扩展如何落地。",
+          "mergeSuggestion": "优先拆 manifest、权限和核心交互。"
+        },
+        {
+          "repo": "qiaomu-tab",
+          "role": "同类产品",
+          "relationType": "同类替代",
+          "relationReason": "同属浏览器入口，但场景是新标签页。",
+          "mergeSuggestion": "和 X 插件二选一，不要同时做两个扩展。"
+        },
+        {
+          "repo": "PairTranslate",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "翻译能力可嵌入阅读/收藏/浏览器插件。",
+          "mergeSuggestion": "只作为能力模块，不开独立项目。"
+        },
+        {
+          "repo": "browser",
+          "role": "基础设施",
+          "relationType": "配套增强",
+          "relationReason": "可帮助理解浏览器自动化或插件控制能力。",
+          "mergeSuggestion": "等扩展方向确定后再看 API。"
+        },
+        {
+          "repo": "claude-desktop-buddy",
+          "role": "桌面参考",
+          "relationType": "灵感参考",
+          "relationReason": "提供桌面助手形态参考，可和浏览器插件形成互补。",
+          "mergeSuggestion": "只看交互形态，暂不实现桌面端。"
+        },
+        {
+          "repo": "sniffnet",
+          "role": "桌面工具",
+          "relationType": "灵感参考",
+          "relationReason": "它是网络流量监控桌面应用，适合参考桌面工具的信息可视化和实时状态呈现。",
+          "mergeSuggestion": "只拆 UI 和状态监控体验，不作为本周主线。"
+        },
+        {
+          "repo": "macsai",
+          "role": "桌面工具",
+          "relationType": "灵感参考",
+          "relationReason": "它是 Mac 清理/优化/安全工具，适合参考 SwiftUI 桌面工具的产品结构。",
+          "mergeSuggestion": "只看桌面工具形态和功能组织，暂不深挖实现。"
+        }
+      ]
+    },
+    {
+      "id": "codex-claude-skill-system",
+      "name": "Codex / Claude / MCP 技能体系",
+      "categoryId": "agent",
+      "purpose": "把技能、MCP、子代理和自动化命令整理成可复用的个人工作台能力。",
+      "primaryRepo": "skills",
+      "relatedRepos": ["skills-manage", "awesome-codex-subagents", "autocli-skill", "obsidian-skills", "khazix-skills"],
+      "priorityScore": 84,
+      "weeklyAction": "先梳理 skills 仓库的技能结构，再选一个最小技能改造成自己的固定工作流。",
+      "doneCriteria": "产出一个你自己的技能模板，明确触发词、输入、输出和验收方式。",
+      "mergeStrategy": "skills 做主资料；skills-manage 看管理方式；awesome-codex-subagents 只做子代理索引；其他 skill 仓库只挑一个模板吸收。",
+      "opportunity": "可迁移成你的个人 Codex 工作流库，也能沉淀成可发布的插件/技能产品。",
+      "repoRelations": [
+        {
+          "repo": "skills",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它是技能体系的主资料库，信息密度最高。",
+          "mergeSuggestion": "只学习目录结构和 1 个模板，不全量读。"
+        },
+        {
+          "repo": "skills-manage",
+          "role": "管理工具",
+          "relationType": "配套增强",
+          "relationReason": "补充技能安装、更新、管理思路。",
+          "mergeSuggestion": "等自己有 2-3 个技能后再看管理。"
+        },
+        {
+          "repo": "awesome-codex-subagents",
+          "role": "资料索引",
+          "relationType": "资料索引",
+          "relationReason": "适合作为子代理灵感列表。",
+          "mergeSuggestion": "只挑一个与你当前任务有关的子代理。"
+        },
+        {
+          "repo": "autocli-skill",
+          "role": "模板参考",
+          "relationType": "灵感参考",
+          "relationReason": "可以观察命令行自动化如何包装成 skill。",
+          "mergeSuggestion": "作为模板拆解，不单独深挖。"
+        },
+        {
+          "repo": "obsidian-skills",
+          "role": "场景插件",
+          "relationType": "上游下游",
+          "relationReason": "能和知识管理路线连接，但不是主线。",
+          "mergeSuggestion": "知识库路线确定后再合并。"
+        },
+        {
+          "repo": "khazix-skills",
+          "role": "疑似重复",
+          "relationType": "疑似重复",
+          "relationReason": "同属技能集合，可能和 skills 主仓库重叠。",
+          "mergeSuggestion": "只比较特殊模板，重复部分丢弃。"
+        }
+      ]
+    },
+    {
+      "id": "content-trend-radar",
+      "name": "内容采集与趋势雷达",
+      "categoryId": "knowledge",
+      "purpose": "把平台内容采集、热点追踪和每周总结合并成一个“我最近在关注什么”的系统。",
+      "primaryRepo": "TrendRadar",
+      "relatedRepos": ["Siftly-x-", "wechat-radar", "wechat-group-stats", "wechat-article-exporter-", "firecrawl"],
+      "priorityScore": 82,
+      "weeklyAction": "先读 TrendRadar 的输入源和输出报告，再决定 X/微信哪个来源优先接入。",
+      "doneCriteria": "能写出一张趋势雷达数据流：来源、抓取、过滤、摘要、行动建议。",
+      "mergeStrategy": "TrendRadar 做报告主线；Siftly-x 负责 X；wechat-radar/文章导出器负责微信；firecrawl 做网页采集基础设施。",
+      "opportunity": "可迁移成选题雷达、副业机会雷达、竞品监控报告。",
+      "repoRelations": [
+        {
+          "repo": "TrendRadar",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它最接近周期性趋势总结和行动建议。",
+          "mergeSuggestion": "先看输出报告形态，再决定接什么数据源。"
+        },
+        {
+          "repo": "Siftly-x-",
+          "role": "采集工具",
+          "relationType": "配套增强",
+          "relationReason": "偏 X 信息筛选，适合补充趋势雷达的数据源。",
+          "mergeSuggestion": "和微信采集二选一优先，不要同时做两个来源。"
+        },
+        {
+          "repo": "wechat-radar",
+          "role": "采集工具",
+          "relationType": "配套增强",
+          "relationReason": "适合微信生态内容来源。",
+          "mergeSuggestion": "如果你本周关注公众号，就优先它；否则留后。"
+        },
+        {
+          "repo": "wechat-group-stats",
+          "role": "分析参考",
+          "relationType": "灵感参考",
+          "relationReason": "社群统计可以作为趋势雷达里的群聊信号。",
+          "mergeSuggestion": "只看指标设计。"
+        },
+        {
+          "repo": "wechat-article-exporter-",
+          "role": "采集工具",
+          "relationType": "配套增强",
+          "relationReason": "适合把公众号文章变成可处理文本。",
+          "mergeSuggestion": "和 wechat-radar 合并判断，保留更稳定的一种。"
+        },
+        {
+          "repo": "firecrawl",
+          "role": "基础设施",
+          "relationType": "配套增强",
+          "relationReason": "可提供通用网页抓取能力。",
+          "mergeSuggestion": "只作为后续采集层，不作为本周主项目。"
+        }
+      ]
+    },
+    {
+      "id": "ui-product-prototype",
+      "name": "UI 组件与产品原型",
+      "categoryId": "creative",
+      "purpose": "把 UI 组件、设计抽取和产品原型能力合并成一条可复用的前端产品产出线。",
+      "primaryRepo": "cult-ui",
+      "relatedRepos": ["design-extract", "MeiGen-AI-Design-MCP", "impeccable", "paywall-gallery"],
+      "priorityScore": 78,
+      "weeklyAction": "先看 cult-ui 的组件风格，再用 design-extract 拆一个真实界面。",
+      "doneCriteria": "产出一套 3 个可复用组件或页面模式，并说明适用场景。",
+      "mergeStrategy": "cult-ui 做组件主线；design-extract 做拆解工具；MeiGen/impeccable 做生成能力；paywall-gallery 做视觉参考。",
+      "opportunity": "可迁移成 UI 模板库、原型生成服务、设计分析工具。",
+      "repoRelations": [
+        {
+          "repo": "cult-ui",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它更接近可直接复用的 UI 组件资产。",
+          "mergeSuggestion": "只挑适合工具型 Dashboard 的组件。"
+        },
+        {
+          "repo": "design-extract",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "可从现有设计中抽取结构，补足组件复用链路。",
+          "mergeSuggestion": "和 cult-ui 配套，不单独做项目。"
+        },
+        {
+          "repo": "MeiGen-AI-Design-MCP",
+          "role": "生成工具",
+          "relationType": "配套增强",
+          "relationReason": "MCP 方向可把设计生成接进 Agent 工作流。",
+          "mergeSuggestion": "等组件库方向清楚后再接 MCP。"
+        },
+        {
+          "repo": "impeccable",
+          "role": "同类替代",
+          "relationType": "同类替代",
+          "relationReason": "和设计生成方向有重叠，可和 UI 组件路线互相验证。",
+          "mergeSuggestion": "不要和设计生成簇重复深挖，只复用结论。"
+        },
+        {
+          "repo": "paywall-gallery",
+          "role": "灵感参考",
+          "relationType": "灵感参考",
+          "relationReason": "适合收集商业页面的视觉和转化结构。",
+          "mergeSuggestion": "只做灵感库，不作为开发主线。"
+        }
+      ]
+    },
+    {
+      "id": "local-ai-runtime",
+      "name": "本地 AI 与模型工具",
+      "categoryId": "infra",
+      "purpose": "整理本地 AI 运行、模型工具和图像生成基础设施，避免和应用层项目混在一起。",
+      "primaryRepo": "LocalAI",
+      "relatedRepos": ["stable_diffusion_tools", "IMG-Dataset-Refiner", "MinerU"],
+      "priorityScore": 72,
+      "weeklyAction": "先判断 LocalAI 是否服务当前 Agent/图像路线，不急着安装重模型。",
+      "doneCriteria": "写清楚本地 AI 能解决什么成本/隐私/速度问题，以及当前是否需要。",
+      "mergeStrategy": "LocalAI 做本地模型入口；stable_diffusion_tools/IMG-Dataset-Refiner 只在图像路线需要数据或模型时启用；MinerU 可接知识输入。",
+      "opportunity": "可迁移成本地知识库、本地生成服务、私有化自动化工具。",
+      "repoRelations": [
+        {
+          "repo": "LocalAI",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它是本地 AI 服务入口，适合判断是否需要私有化能力。",
+          "mergeSuggestion": "先做需求判断，不马上折腾环境。"
+        },
+        {
+          "repo": "stable_diffusion_tools",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "服务图像生成路线，但不是独立学习主线。",
+          "mergeSuggestion": "等图像路线需要本地化时再看。"
+        },
+        {
+          "repo": "IMG-Dataset-Refiner",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "偏图像数据清洗，可服务训练或素材整理。",
+          "mergeSuggestion": "暂时只保留。"
+        },
+        {
+          "repo": "MinerU",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "文档解析能力可接知识管理路线。",
+          "mergeSuggestion": "知识库路线需要 PDF/文档解析时再合并。"
+        }
+      ]
+    },
+    {
+      "id": "markdown-document-pipeline",
+      "name": "Markdown 与文档生产线",
+      "categoryId": "knowledge",
+      "purpose": "把 Markdown、文档导出、笔记和发布整理成可复用的内容生产流程。",
+      "primaryRepo": "markamd",
+      "relatedRepos": ["OpenNote", "notebooklm-py", "wechat-article-exporter-", "x-bookmark-to-obsidian"],
+      "priorityScore": 70,
+      "weeklyAction": "先确定你最终希望输出 Markdown、Obsidian 还是网页，再看工具。",
+      "doneCriteria": "确定一条内容从采集到整理再到发布的标准路径。",
+      "mergeStrategy": "markamd 做格式主线；OpenNote/notebooklm-py 做笔记和问答参考；导出器和 X 书签工具只作为输入层。",
+      "opportunity": "可迁移成写作素材库、自动周报、文章发布前处理工具。",
+      "repoRelations": [
+        {
+          "repo": "markamd",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它偏 Markdown 内容处理，适合作为文档生产线的格式主线。",
+          "mergeSuggestion": "先明确输出格式，再决定是否深挖。"
+        },
+        {
+          "repo": "OpenNote",
+          "role": "同类参考",
+          "relationType": "同类替代",
+          "relationReason": "同属笔记/内容组织方向，可以和 OpenWiki 路线互相比较。",
+          "mergeSuggestion": "只比较产品形态，不另起路线。"
+        },
+        {
+          "repo": "notebooklm-py",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "可观察文档问答/资料处理接口。",
+          "mergeSuggestion": "知识库问答需要时再看。"
+        },
+        {
+          "repo": "wechat-article-exporter-",
+          "role": "输入工具",
+          "relationType": "配套增强",
+          "relationReason": "可把公众号文章变成 Markdown/文本输入。",
+          "mergeSuggestion": "和知识整理簇共享，不重复研究。"
+        },
+        {
+          "repo": "x-bookmark-to-obsidian",
+          "role": "输入工具",
+          "relationType": "配套增强",
+          "relationReason": "适合作为 X 收藏到 Markdown/Obsidian 的输入层。",
+          "mergeSuggestion": "和 OpenWiki 二选一入口后再接入。"
+        }
+      ]
+    },
+    {
+      "id": "codex-desktop-workbench",
+      "name": "Codex 桌面工作台与多 Agent 基础设施",
+      "categoryId": "agent",
+      "purpose": "把 Codex Desktop、多 Agent 协作、桌面工作台、第三方 API 网关和个人 AI 基础设施合并成一条“个人 AI 工作台”路线。",
+      "primaryRepo": "AionUi",
+      "relatedRepos": ["opencodex", "codex-multi-launcher", "personal_ai_infrastructure", "aethergate-pro"],
+      "priorityScore": 88,
+      "weeklyAction": "先看 AionUi 的 24/7 Cowork app 和 MCP 统一管理，再比较 opencodex/codex-multi-launcher 是否只是基础设施补件。",
+      "doneCriteria": "能写出一张个人 AI 工作台架构图：入口、模型/API、Agent 管理、MCP、文件/网页能力、远程访问。",
+      "mergeStrategy": "AionUi 做桌面工作台主线；opencodex 看 Codex Desktop API/视觉桥接；codex-multi-launcher 看多配置隔离；personal_ai_infrastructure 只拆工作流和 Dashboard 思路；aethergate-pro 只作为网络隔离/代理基础设施参考。",
+      "opportunity": "可迁移成你的本地 AI 工作台、Codex 多开管理、MCP 管理器或个人自动化控制台。",
+      "repoRelations": [
+        {
+          "repo": "AionUi",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它把多个 CLI/Agent、MCP 管理、文件编辑和远程访问集中到一个桌面工作台，最适合做主线。",
+          "mergeSuggestion": "先读核心功能和安装方式，判断它能不能替代多工具切换。"
+        },
+        {
+          "repo": "opencodex",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "它提供 Codex Desktop 的本地网关、自定义 API 和 Vision Bridge，可补足模型/API 接入层。",
+          "mergeSuggestion": "只看网关和视觉桥接设计，不先折腾完整部署。"
+        },
+        {
+          "repo": "codex-multi-launcher",
+          "role": "配套工具",
+          "relationType": "配套增强",
+          "relationReason": "它解决多个 Codex 配置和账号隔离，适合作为工作台的启动/配置管理参考。",
+          "mergeSuggestion": "和 opencodex 放一起比较，避免重复做启动器。"
+        },
+        {
+          "repo": "personal_ai_infrastructure",
+          "role": "架构参考",
+          "relationType": "灵感参考",
+          "relationReason": "它强调个人 AI 基础设施、技能、工作流和 Life Dashboard，适合拆整体架构。",
+          "mergeSuggestion": "只吸收架构图和 Dashboard 思路，不全量迁移。"
+        },
+        {
+          "repo": "aethergate-pro",
+          "role": "基础设施",
+          "relationType": "配套增强",
+          "relationReason": "它偏网络命名空间、代理和自愈，和 AI 工作台不是同类，但可作为远程/网络隔离基础设施参考。",
+          "mergeSuggestion": "先标记为低优先级，只在远程访问或代理隔离需要时再看。"
+        }
+      ]
+    },
+    {
+      "id": "browser-agent-scraping",
+      "name": "浏览器 Agent 与网页自动化",
+      "categoryId": "agent",
+      "purpose": "把无头浏览器、浏览器工作流 API、网页抓取和 Agent 浏览器能力整理成一个可复用的网页自动化技术包。",
+      "primaryRepo": "obscura",
+      "relatedRepos": ["browseract-api-examples", "firecrawl", "browser", "make-x-great-again"],
+      "priorityScore": 83,
+      "weeklyAction": "先读 obscura 的 headless browser 能力，再用 browseract-api-examples 理解 workflow automation 的调用方式。",
+      "doneCriteria": "能说明浏览器自动化链路里谁负责打开网页、谁负责抓取、谁负责工作流、谁负责产品化入口。",
+      "mergeStrategy": "obscura 做底层浏览器能力主线；browseract-api-examples 做 API 调用示例；firecrawl 做网页内容抓取；make-x-great-again 只作为浏览器产品化参考。",
+      "opportunity": "可迁移成网页资料采集、竞品监控、X 信息整理、自动填表或浏览器助手。",
+      "repoRelations": [
+        {
+          "repo": "obscura",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它是面向 AI agents 和 web scraping 的无头浏览器，适合作为底层能力主线。",
+          "mergeSuggestion": "先看 stealth、session、fingerprint 和启动方式，不马上做复杂爬虫。"
+        },
+        {
+          "repo": "browseract-api-examples",
+          "role": "示例集合",
+          "relationType": "配套增强",
+          "relationReason": "它提供 Python/Java/Node 的 BrowserAct API 示例，适合理解自动化工作流怎么调用。",
+          "mergeSuggestion": "只跑一个最小 run-and-wait 示例。"
+        },
+        {
+          "repo": "firecrawl",
+          "role": "采集工具",
+          "relationType": "配套增强",
+          "relationReason": "它更偏网页内容抓取和结构化输入，可接知识管理和趋势雷达。",
+          "mergeSuggestion": "作为内容抓取层保留，不和浏览器控制层混在一起。"
+        },
+        {
+          "repo": "browser",
+          "role": "基础设施",
+          "relationType": "配套增强",
+          "relationReason": "可作为浏览器控制能力和接口设计参考。",
+          "mergeSuggestion": "等具体自动化场景确定后再看。"
+        },
+        {
+          "repo": "make-x-great-again",
+          "role": "产品参考",
+          "relationType": "灵感参考",
+          "relationReason": "它展示了浏览器能力如何落到真实信息流产品上。",
+          "mergeSuggestion": "只吸收产品入口和用户痛点，不作为底层技术主线。"
+        }
+      ]
+    },
+    {
+      "id": "ai-content-creation-skills",
+      "name": "AI 内容创作技能包",
+      "categoryId": "creative",
+      "purpose": "把海报、图像站、像素角色、视频解说、X/微信发布和学术写作技能合并成内容生产能力池。",
+      "primaryRepo": "html-anything",
+      "relatedRepos": ["taste-skill", "YanAI", "qiaomu-mondo-poster-design", "prompt-packs", "narrator-ai-cli-skill", "yichen-skills", "codex-claude-academic-skills"],
+      "priorityScore": 85,
+      "weeklyAction": "先看 html-anything 的 9 种输出 surface，再从 YanAI/qiaomu-mondo/prompt-packs 中挑一个视觉场景拆模板。",
+      "doneCriteria": "沉淀一个内容生产模板：输入 brief、生成方式、输出格式、发布渠道和可复用提示词。",
+      "mergeStrategy": "html-anything 做多格式 HTML 输出主线；taste-skill 做审美约束；YanAI/qiaomu/prompt-packs 做视觉素材和提示词；narrator/yichen/academic-skills 只按场景选用，不同时展开。",
+      "opportunity": "可迁移成小红书/公众号配图、海报封面生成、X Article 发布、视频解说或学术文档助手。",
+      "repoRelations": [
+        {
+          "repo": "html-anything",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它覆盖 magazine、deck、poster、XHS、tweet、prototype、data report 等输出面，适合作为内容产出主线。",
+          "mergeSuggestion": "先验证一个 HTML/海报输出，不要同时展开所有 surface。"
+        },
+        {
+          "repo": "taste-skill",
+          "role": "审美约束",
+          "relationType": "配套增强",
+          "relationReason": "它专门减少 AI 前端和视觉输出的 generic slop，适合做质量门槛。",
+          "mergeSuggestion": "和 html-anything 配套，用作评审 checklist。"
+        },
+        {
+          "repo": "YanAI",
+          "role": "图像工作台",
+          "relationType": "配套增强",
+          "relationReason": "它是基于 GPT Image 的自托管图片创作与管理系统，可承接图像生成流程。",
+          "mergeSuggestion": "只看提示词库、历史记录和账号池设计，不做商业化接入。"
+        },
+        {
+          "repo": "qiaomu-mondo-poster-design",
+          "role": "海报模板",
+          "relationType": "灵感参考",
+          "relationReason": "它把一句话生成海报、封面和社媒图做成具体技能，和你的内容生产很贴近。",
+          "mergeSuggestion": "拆 3 个提示词模板，合并进设计生成路线。"
+        },
+        {
+          "repo": "prompt-packs",
+          "role": "资料索引",
+          "relationType": "资料索引",
+          "relationReason": "它是像素角色/动画 prompt pack，适合补充垂直风格模板。",
+          "mergeSuggestion": "只作为提示词库，不单独开项目。"
+        },
+        {
+          "repo": "narrator-ai-cli-skill",
+          "role": "视频场景",
+          "relationType": "上游下游",
+          "relationReason": "它把视频解说 CLI 封成 Agent skill，适合未来做视频内容流程。",
+          "mergeSuggestion": "等图文流程跑通后再进入视频。"
+        },
+        {
+          "repo": "yichen-skills",
+          "role": "发布工具",
+          "relationType": "配套增强",
+          "relationReason": "它覆盖 X Articles、微信素材抓取和本地工作流，能接内容发布环节。",
+          "mergeSuggestion": "只看 X/微信发布链路，和文档生产线共享。"
+        },
+        {
+          "repo": "codex-claude-academic-skills",
+          "role": "垂直技能",
+          "relationType": "灵感参考",
+          "relationReason": "它是学术场景的技能包，适合作为垂直行业技能设计参考。",
+          "mergeSuggestion": "不放入本周主线，只学习 skill 结构和场景拆分。"
+        }
+      ]
+    },
+    {
+      "id": "build-from-scratch-learning",
+      "name": "从零实现技术学习",
+      "categoryId": "learning",
+      "purpose": "把大型 awesome/教程类仓库收束成“只选一个小项目动手复刻”的学习路线，防止继续收藏资料。",
+      "primaryRepo": "build-your-own-x",
+      "relatedRepos": ["awesome-quant", "awesome-codex-subagents", "awesome-gpt-image-2"],
+      "priorityScore": 66,
+      "weeklyAction": "从 build-your-own-x 只选一个与你当前副业方向相关的小项目，限定 2 小时做最小复刻。",
+      "doneCriteria": "产出一个可运行小 demo 或一页复刻笔记，而不是继续扩展资料清单。",
+      "mergeStrategy": "build-your-own-x 做动手学习入口；其他 awesome 仓库只作为索引，不允许全量阅读。",
+      "opportunity": "可迁移成技术学习素材、教程拆解、从零实现系列内容。",
+      "repoRelations": [
+        {
+          "repo": "build-your-own-x",
+          "role": "主项目",
+          "relationType": "资料索引",
+          "relationReason": "它收集从零实现各种技术的教程，适合用来训练底层理解，但也很容易变成无限收藏。",
+          "mergeSuggestion": "每次只选一个最小项目复刻，完成后再决定是否继续。"
+        },
+        {
+          "repo": "awesome-quant",
+          "role": "资料索引",
+          "relationType": "资料索引",
+          "relationReason": "量化资料索引可以接金融数据路线，但不适合作为行动主线。",
+          "mergeSuggestion": "只补地图，不逐条展开。"
+        },
+        {
+          "repo": "awesome-codex-subagents",
+          "role": "资料索引",
+          "relationType": "资料索引",
+          "relationReason": "子代理资料可以提供模板灵感，但不应该一次性全看。",
+          "mergeSuggestion": "只挑一个当前任务需要的子代理。"
+        },
+        {
+          "repo": "awesome-gpt-image-2",
+          "role": "资料索引",
+          "relationType": "资料索引",
+          "relationReason": "图像生成案例库适合复刻练习，但不应替代真实输出。",
+          "mergeSuggestion": "每次只复刻一个案例并沉淀模板。"
+        }
+      ]
+    },
+    {
+      "id": "vertical-knowledge-engine",
+      "name": "垂直知识引擎与传统文化数据产品",
+      "categoryId": "knowledge",
+      "purpose": "把专业知识库、规则引擎、古籍/结构化数据和 AI 解读合并成一个垂直知识产品方向。",
+      "primaryRepo": "ziwei-doushu",
+      "relatedRepos": ["nihaisha-tcm", "Hermes-Wiki", "OpenWiki"],
+      "priorityScore": 58,
+      "weeklyAction": "先只读 ziwei-doushu 的数据结构和 API，判断它是可学习的规则引擎，还是暂时无关收藏。",
+      "doneCriteria": "写清楚这个项目的数据源、规则引擎、AI 解读和前端产品形态，给出保留或丢弃理由。",
+      "mergeStrategy": "ziwei-doushu 作为垂直知识引擎样本；nihaisha-tcm/Hermes-Wiki/OpenWiki 作为知识组织参考；不做命理结论，只看数据产品结构。",
+      "opportunity": "可迁移成垂直知识库、专业规则引擎、古籍检索或行业知识问答产品。",
+      "repoRelations": [
+        {
+          "repo": "ziwei-doushu",
+          "role": "主项目",
+          "relationType": "主线平台",
+          "relationReason": "它包含排盘算法、知识库、古籍数据和 AI 解读，适合观察垂直知识产品如何组织规则和内容。",
+          "mergeSuggestion": "只做产品和数据结构学习，不做命理判断。"
+        },
+        {
+          "repo": "nihaisha-tcm",
+          "role": "垂直参考",
+          "relationType": "灵感参考",
+          "relationReason": "同属传统知识/专业知识方向，可比较数据结构和知识库组织方式。",
+          "mergeSuggestion": "只比较知识结构，不展开医学建议。"
+        },
+        {
+          "repo": "Hermes-Wiki",
+          "role": "知识库参考",
+          "relationType": "灵感参考",
+          "relationReason": "可作为 Wiki 化知识组织方式参考。",
+          "mergeSuggestion": "只看信息架构。"
+        },
+        {
+          "repo": "OpenWiki",
+          "role": "知识库平台",
+          "relationType": "配套增强",
+          "relationReason": "可作为把垂直资料整理成可检索知识库的平台参考。",
+          "mergeSuggestion": "如果保留该方向，再考虑接入知识管理路线。"
+        }
+      ]
+    }
+  ]
+}
