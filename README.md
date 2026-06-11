@@ -2,24 +2,130 @@
 
 [中文说明](./README.zh-CN.md)
 
-Fork Lab is a GitHub fork dashboard demo for personal learning, evaluation, and weekly project prioritization.
+Fork Lab is a learning dashboard for people who fork a lot of GitHub repositories, save them with good intentions, and then lose track of what is actually worth exploring.
 
-This project turns the forked repositories under `jackwbinny-design` into a browsable React dashboard designed to answer three practical questions:
+Most fork collections eventually become a messy backlog:
 
-- Which forks are worth spending more time on?
-- Which three project groups should be pushed forward this week?
-- Which repositories belong to the same capability track and should be reviewed together?
+- too many interesting repos
+- too little context about why each one was saved
+- no clear weekly priority
+- no structure for deciding whether to keep, explore, or drop a project
 
-## Features
+Fork Lab was built as a response to that problem.
+
+Instead of treating forked repositories as a passive archive, it turns them into an action-oriented review system: something you can open every week to decide what deserves time, what belongs together, and what should be ignored.
+
+## Why This Exists
+
+The original use case was simple:
+
+Someone keeps finding interesting open-source projects on GitHub, especially around AI agents, design tools, automation, browser workflows, local deployment, and knowledge systems. They fork first so they do not lose the link. After a while, the account contains hundreds of forks, but almost none of them are truly “processed.”
+
+At that point, the problem is no longer discovery. The problem is decision-making.
+
+Fork Lab is meant to help answer questions like:
+
+- Why did I fork this repo in the first place?
+- Is it still active or useful?
+- Which repos are actually part of the same learning direction?
+- What are the three best things to explore this week?
+- Which ones should be kept as references, and which ones should be dropped?
+
+## What Fork Lab Is
+
+Fork Lab is a React + Vite dashboard that organizes a GitHub fork collection into a more usable decision layer.
+
+It combines:
+
+- repository metadata
+- upstream project clues
+- extracted README signals
+- hand-curated relationship clusters
+- local weekly decisions and notes
+
+The result is not just a list of repositories. It is a lightweight personal research workflow.
+
+## Core Idea
+
+Fork Lab treats a fork collection as a pipeline with three stages:
+
+1. Save interesting repositories before they disappear from view.
+2. Enrich them with enough context to make faster judgments later.
+3. Review them in weekly batches so the collection turns into action, not hoarding.
+
+This is why the UI is built around:
+
+- selected repositories
+- weekly action groups
+- related project clusters
+- keep / deepen / drop decisions
+
+## How It Works
+
+### 1. Repository Inventory
+
+The dashboard starts with a GitHub account’s forked repositories and turns them into a structured dataset.
+
+Each record can include:
+
+- repository name and upstream source
+- category and score
+- basic description and language
+- README highlights
+- action suggestions
+- learning-oriented explanations
+
+### 2. Cluster-Based Review
+
+Many repositories should not be reviewed in isolation.
+
+For example, one repo may be the main product, while others are:
+
+- companion tools
+- lighter alternatives
+- implementation references
+- datasets or prompt collections
+
+Fork Lab groups these into clusters so a weekly review is based on themes, not random single repos.
+
+### 3. Weekly Action Layer
+
+The dashboard then narrows the whole backlog into a small set of weekly priorities.
+
+The goal is not “review everything.”
+
+The goal is:
+
+- choose a few strong candidates
+- run one real test
+- write down what was learned
+- decide whether to continue, keep as reference, move toward productization, or drop
+
+## Who It Is For
+
+Fork Lab is especially useful for people who:
+
+- fork many repos as part of research or inspiration collection
+- work across AI, design, automation, tooling, or indie product exploration
+- need a better system than browser bookmarks or raw GitHub stars
+- want a more opinionated weekly review workflow for open-source discovery
+
+It is not trying to be a general-purpose GitHub analytics tool.
+
+It is closer to a personal learning and decision dashboard.
+
+## Current Features
 
 - React + Vite single-page dashboard
-- Repository overview, selected picks, and weekly action groups
-- Cluster view for reviewing related repositories together
-- Local persistence for decisions and weekly notes
-- README clue enrichment and upstream metadata scripts
+- repository overview and selected picks
+- weekly action groups
+- cluster view for related repositories
+- local persistence for decisions and weekly notes
+- scripts for upstream detail enrichment
+- scripts for README clue extraction
 - GitHub Pages deployment workflow
 
-## Run Locally
+## Local Development
 
 ```bash
 npm install
@@ -72,8 +178,10 @@ For first-time setup, confirm the following in the repository settings:
 - Lucide React
 - Node.js scripts for GitHub data enrichment
 
-## Notes
+## Project Status
 
-This is the first public product demo of the project. The goal is to turn “I forked a lot of repos but don’t know what to do next” into an actionable interface.
+This is the first public demo version of Fork Lab.
+
+It is intentionally focused on one core problem: turning a large GitHub fork backlog into something reviewable, understandable, and actionable.
 
 > For public demo publishing, the repository may use a reduced sample dataset to keep the repo lightweight and deployment stable, while the local workspace can continue using the full dataset and update scripts.
