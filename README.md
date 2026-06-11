@@ -1,42 +1,44 @@
 # Fork Lab
 
-一个面向个人学习与项目筛选的 GitHub Fork Dashboard Demo。
+[中文说明](./README.zh-CN.md)
 
-这个项目会把 `jackwbinny-design` 账号下的 fork 仓库整理成一个可浏览、可筛选、可做每周行动决策的前端看板，用来回答三个问题：
+Fork Lab is a GitHub fork dashboard demo for personal learning, evaluation, and weekly project prioritization.
 
-- 这些 fork 到底值不值得继续投入？
-- 这周优先推进哪 3 组项目？
-- 哪些仓库是同一条能力路线，应该放在一起看？
+This project turns the forked repositories under `jackwbinny-design` into a browsable React dashboard designed to answer three practical questions:
 
-## 当前功能
+- Which forks are worth spending more time on?
+- Which three project groups should be pushed forward this week?
+- Which repositories belong to the same capability track and should be reviewed together?
 
-- React + Vite 单页 Dashboard
-- 仓库总览、精选项目、本周行动组
-- 关系簇（cluster）视图，帮助把相关仓库放在一起判断
-- 本地决策状态持久化
-- README 线索与上游项目信息富化脚本
-- GitHub Pages 自动部署工作流
+## Features
 
-## 本地运行
+- React + Vite single-page dashboard
+- Repository overview, selected picks, and weekly action groups
+- Cluster view for reviewing related repositories together
+- Local persistence for decisions and weekly notes
+- README clue enrichment and upstream metadata scripts
+- GitHub Pages deployment workflow
+
+## Run Locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-默认开发地址：
+Default local URL:
 
 ```text
 http://127.0.0.1:5173
 ```
 
-## 构建
+## Build
 
 ```bash
 npm run build
 ```
 
-## 数据刷新
+## Refresh Data
 
 ```bash
 npm run update:data
@@ -45,31 +47,33 @@ npm run enrich:readmes
 npm run refine:categories
 ```
 
-一键刷新并重建：
+Refresh everything and rebuild:
 
 ```bash
 npm run update:dashboard
 ```
 
-## 部署到 GitHub Pages
+## Deploy to GitHub Pages
 
-仓库内已包含 GitHub Actions 工作流：
+This repository already includes a GitHub Actions workflow that:
 
-- 推送到 `main` 后自动构建
-- 自动发布 `dist/` 到 GitHub Pages
+- builds automatically after pushes to `main`
+- deploys `dist/` to GitHub Pages
 
-首次启用时，请在 GitHub 仓库设置里确认：
+For first-time setup, confirm the following in the repository settings:
 
 1. `Settings -> Pages`
-2. `Build and deployment` 选择 `GitHub Actions`
+2. `Build and deployment` is set to `GitHub Actions`
 
-## 技术栈
+## Tech Stack
 
 - React 18
 - Vite 8
 - Lucide React
-- Node.js 脚本做 GitHub 数据整理
+- Node.js scripts for GitHub data enrichment
 
-## 说明
+## Notes
 
-这是第一版产品 demo，重点是把“收藏了很多 fork，但不知道下一步做什么”的问题做成一个真正可操作的界面。
+This is the first public product demo of the project. The goal is to turn “I forked a lot of repos but don’t know what to do next” into an actionable interface.
+
+> For public demo publishing, the repository may use a reduced sample dataset to keep the repo lightweight and deployment stable, while the local workspace can continue using the full dataset and update scripts.
